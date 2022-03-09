@@ -10,11 +10,11 @@ Official Implement of CVPR 2022 paper 'Boosting Crowd Counting via Multifaceted 
 ## Citation
 If you use this code for your research, please cite our paper:
 
-'''
+```
 @inproceedings{lin2022boosting,
   title={Boosting Crowd Counting via Multifaceted Attention},
   author={Lin, Hui and Ma, Zhiheng and Ji, Rongrong and Wang, Yaowei and Hong, Xiaopeng},
   booktitle={CVPR},
   year={2022}
 }
-'''
+```
