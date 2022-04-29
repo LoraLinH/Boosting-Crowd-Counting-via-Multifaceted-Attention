@@ -6,6 +6,9 @@ Official Implement of CVPR 2022 paper 'Boosting Crowd Counting via Multifaceted 
 ## Test
 1. Dowload Dataset JHU++
 2. Model [Link](https://drive.google.com/file/d/14piGsWRFy9BSXI1Jv9zRxypDxpOHbwCY/view?usp=sharing)
+3. Dowload Dataset UCF-QNRF
+4. Model [Link](https://drive.google.com/file/d/1qvXyxicc3OkTbSGMbFeBIv30xXzf8ffw/view?usp=sharing)
+
 
 ## Citation
 If you use this code for your research, please cite our paper:
