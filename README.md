@@ -3,11 +3,20 @@ Official Implement of CVPR 2022 paper 'Boosting Crowd Counting via Multifaceted 
 
 [arxiv](https://arxiv.org/pdf/2203.02636.pdf) | [知乎](https://zhuanlan.zhihu.com/p/478023612)
 
+## Train
+1. Dowload Dataset JHU++ or UCF-QNRF.
+2. Preprocess them by 'Preprocess_dataset.py'.
+3. Change the path to where your data and models are located in 'Train.py'.
+4. Run 'Train.py'
+5. Wait patiently and happily for the program to finish.
+6. Then you will get a good counting model!
+
 ## Test
-1. Dowload Dataset JHU++
-2. Model [Link](https://drive.google.com/file/d/14piGsWRFy9BSXI1Jv9zRxypDxpOHbwCY/view?usp=sharing)
-3. Dowload Dataset UCF-QNRF
-4. Model [Link](https://drive.google.com/file/d/1qvXyxicc3OkTbSGMbFeBIv30xXzf8ffw/view?usp=sharing)
+1. Dowload Dataset JHU++ or UCF-QNRF.
+2. Preprocess them by 'Preprocess_dataset.py'.
+3. JHU Model [Link](https://drive.google.com/file/d/14piGsWRFy9BSXI1Jv9zRxypDxpOHbwCY/view?usp=sharing); UCF Model [Link](https://drive.google.com/file/d/1qvXyxicc3OkTbSGMbFeBIv30xXzf8ffw/view?usp=sharing)
+4. Change the path to where your data and models are located in 'Test.py'.
+5. Run 'Test.py'.
 
 
 ## Citation
