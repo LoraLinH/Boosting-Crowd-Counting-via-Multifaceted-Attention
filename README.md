@@ -3,6 +3,8 @@ Official Implement of CVPR 2022 paper 'Boosting Crowd Counting via Multifaceted 
 
 [arxiv](https://arxiv.org/pdf/2203.02636.pdf) | [知乎](https://zhuanlan.zhihu.com/p/478023612)
 
+![image](structure.png)
+
 ## Train
 1. Dowload Dataset JHU++ or UCF-QNRF.
 2. Preprocess them by 'Preprocess_dataset.py'.
@@ -10,6 +12,7 @@ Official Implement of CVPR 2022 paper 'Boosting Crowd Counting via Multifaceted 
 4. Run 'Train.py'
 5. Wait patiently and happily for the program to finish.
 6. Then you will get a good counting model!
+
 
 ## Test
 1. Dowload Dataset JHU++ or UCF-QNRF.
