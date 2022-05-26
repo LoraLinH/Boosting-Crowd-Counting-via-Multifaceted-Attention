@@ -1,7 +1,7 @@
 # Boosting-Crowd-Counting-via-Multifaceted-Attention
 Official Implement of CVPR 2022 paper 'Boosting Crowd Counting via Multifaceted Attention'
 
-[arxiv](https://arxiv.org/pdf/2203.02636.pdf) | [知乎](https://zhuanlan.zhihu.com/p/478023612)
+[arxiv](https://arxiv.org/pdf/2203.02636.pdf) | [知乎](https://zhuanlan.zhihu.com/p/478023612) | [B站](https://www.bilibili.com/video/BV13Y411u7r5/?spm_id_from=333.788)
 
 ![image](structure.png)
 
