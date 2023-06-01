@@ -5,15 +5,17 @@ from datasets.crowd import Crowd
 from models.vgg_c import vgg19_trans
 import argparse
 import math
+import cv2 as cv
+from matplotlib import pyplot as plt
 
 args = None
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Test ')
-    parser.add_argument('--data-dir', default='JHU_Train_Val_Test',
+    parser.add_argument('--data-dir', default='datasets/UCF_Train_Val_Test',
                         help='training data directory')
-    parser.add_argument('--save-dir', default='model/model.pth',
+    parser.add_argument('--save-dir', default='models/UCF.pth',
                         help='model directory')
     parser.add_argument('--device', default='0', help='assign device')
     args = parser.parse_args()
@@ -28,7 +30,7 @@ if __name__ == '__main__':
     dataloader = torch.utils.data.DataLoader(datasets, 1, shuffle=False,
                                              num_workers=8, pin_memory=False)
 
-    device = torch.device('cuda')
+    device = torch.device('cpu')
     model = vgg19_trans()
     model.to(device)
     model.eval()
@@ -68,7 +70,16 @@ if __name__ == '__main__':
             epoch_minus.append(res)
         else:
             with torch.set_grad_enabled(False):
+                print("input range:{}-{}:".format(inputs.min(), inputs.max()))
+                print("inputs tensor:", inputs.shape)
                 outputs = model(inputs)[0]
+                outImg = outputs[0][0].detach().cpu().numpy()
+                print("outputs model:", outputs.shape)
+                print("output img:", outImg.shape)
+                print(outImg*255)
+                plt.imsave("densityMap.png", outImg*255)
+                cv.imwrite("test.png", outImg*255)
+                break
                 res = count[0].item() - torch.sum(outputs).item()
                 epoch_minus.append(res)
 
