@@ -6,6 +6,7 @@ import argparse
 import math
 import cv2 as cv
 from matplotlib import pyplot as plt
+import matplotlib as mpl
 from torchvision import transforms
 from PIL import Image
 
@@ -17,6 +18,7 @@ def parse_args():
     parser.add_argument('--stream', default='datasets/video.avi',help='training data directory')
     parser.add_argument('--model', default='models/UCF.pth',help='model directory')
     parser.add_argument('--device', default='0', help='assign device')
+    parser.add_argument('--alpha', default=198, help='alpha value to use for blend operation')
     args = parser.parse_args()
     return args
 
@@ -32,12 +34,13 @@ if __name__ == '__main__':
 
     model.load_state_dict(torch.load(args.model, device))
     epoch_minus = []
+    cm_hot = mpl.colormaps['viridis']
 
     stream = cv.VideoCapture(args.stream)
     imWidth = int(stream.get(cv.CAP_PROP_FRAME_WIDTH))
     imHeight = int(stream.get(cv.CAP_PROP_FRAME_HEIGHT))
     print("ImgW:{}, ImgH:{}".format(imWidth,imHeight))
-    streamWritter = cv.VideoWriter("output.avi", cv.VideoWriter_fourcc(*'MJPG'), 10, (imWidth, imHeight))
+    streamWritter = cv.VideoWriter("output.avi", cv.VideoWriter_fourcc(*'MJPG'), 8, (45, 36))
 
     if (stream.isOpened()== False):
         print("Error opening stream")
@@ -59,10 +62,17 @@ if __name__ == '__main__':
             output = model(frameTensor)[0]
             denMap = output[0][0].detach().cpu().numpy()
 
-        #streamWritter.write(denMap*255)
-        if i < 10:
-            #cv.imwrite("densityMap"+str(i)+".png", denMap*255)
-            plt.imsave("densityMap"+str(i)+".png", denMap*255)
+        if i < 200:
+            inputFrame = pilFrame.resize((45,36))
+            
+            out = np.uint8(cm_hot(denMap)*255)
+            out = Image.fromarray(out)
+
+            imOut = out.convert("RGBA")
+            imOut.putalpha(args.alpha)
+            inputFrame.paste(imOut, mask=imOut)
+            streamWritter.write(np.uint8(np.array(inputFrame)))
+
         else:
             break
         i +=1
