@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
 
     device = torch.device('cuda')
-    model = vgg19_trans(device)
+    model = vgg19_trans()
     model.to(device)
     model.load_state_dict(torch.load(args.model_path, device))
     epoch_minus = []
