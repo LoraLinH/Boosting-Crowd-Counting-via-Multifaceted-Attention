@@ -10,7 +10,7 @@ Official Implement of CVPR 2022 paper 'Boosting Crowd Counting via Multifaceted 
 2. Preprocess them by 'preprocess_dataset.py' or 'preprocess_dataset_ucf.py'.
 3. Change the path to where your data and models are located in 'Train.py'.
 4. Run 'Train.py'
-5. Wait patiently and happily for the program to finish.
+5. Wait patiently for the program to finish.
 6. Then you will get a good counting model!
 
 
